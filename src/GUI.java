@@ -6,8 +6,7 @@ import java.util.List;
 
 public class GUI extends JFrame {
     // Create a simulated database to hold incoming Username & Passwords -Dan
-    private ArrayList<String> userList = new ArrayList<>();
-    private ArrayList<String> passList = new ArrayList<>();
+    private Authenticate auth = new Authenticate();
 
     private CardLayout cardLayout;
     private JPanel mainContainer;
@@ -86,7 +85,7 @@ public class GUI extends JFrame {
         loginBtn.addActionListener(e -> {
             String u = userField.getText();
             String p = new String(passField.getPassword());
-            if (verifyLogin(u, p)) {
+            if (auth.checkLogin(u, p)) {
                 currentUser = u;
                 profileLabel.setText("User: " + currentUser);
                 userField.setText("");
@@ -153,8 +152,7 @@ public class GUI extends JFrame {
             String u = userField.getText();
             String p = new String(passField.getPassword());
             if (!u.trim().isEmpty() && !p.trim().isEmpty()) {
-                userList.add(u);
-                passList.add(p);
+                auth.registerUser(u, p);
                 JOptionPane.showMessageDialog(this, "Account Created Successfully! Please log in.");
                 userField.setText("");
                 passField.setText("");
@@ -279,15 +277,5 @@ public class GUI extends JFrame {
         });
 
         return panel;
-    }
-
-    // will verify the credentials in array for account simulation -Dan
-    private boolean verifyLogin(String u, String p) {
-        for (int i = 0; i < userList.size(); i++) {
-            if (userList.get(i).equals(u) && passList.get(i).equals(p)) {
-                return true;
-            }
-        }
-        return false;
     }
 }
