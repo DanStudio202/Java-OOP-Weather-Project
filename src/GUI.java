@@ -4,6 +4,10 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This is the main graphical user interface for the Weather Application.
+ * Manages multiple views for Login, Account Creation, Weather using CardLayout.
+ */
 public class GUI extends JFrame {
     // Create a simulated database to hold incoming Username & Passwords -Dan
     private Authenticate auth = new Authenticate();
@@ -17,7 +21,12 @@ public class GUI extends JFrame {
     private Clothes clothes = new Clothes();
 
     private JLabel profileLabel;
-
+    
+    /**
+     * Constructs the GUI window and initializes components.
+     * * @param api The WeatherAPI instance used to fetch data.
+     */
+    
     // The gui construction -Dan
     public GUI(WeatherAPI api) {
         this.api = api;
@@ -39,6 +48,10 @@ public class GUI extends JFrame {
         add(mainContainer);
     }
 
+    /**
+     * Builds the login screen panel.
+     * @return The login JPanel.
+     */
     // Creates the login menu + creation -Dan
     private JPanel createLoginPanel() {
         JPanel panel = new JPanel(new GridBagLayout());
@@ -106,6 +119,10 @@ public class GUI extends JFrame {
         return panel;
     }
 
+    /**
+     * Builds the account creation panel.
+     * @return The registration JPanel.
+     */
     // makes the account creation screen -Dan
     private JPanel createAccountPanel() {
         JPanel panel = new JPanel(new GridBagLayout());
@@ -172,6 +189,10 @@ public class GUI extends JFrame {
         return panel;
     }
 
+    /**
+     * Builds the main weather dashboard panel.
+     * @return The weather info JPanel.
+     */
     // Once logged in, creates weather screen app -Dan
     private JPanel createWeatherPanel() {
         JPanel panel = new JPanel(new BorderLayout(10, 10));
