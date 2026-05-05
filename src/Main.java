@@ -1,4 +1,12 @@
+/**
+ * The starting point for the Weather Application.
+ * This class initializes our Weather API and launches the Graphical User Interface.
+ */
 public class Main {
+    /**
+     * Main method to start the application.
+     * * @param args Command line arguments (not used).
+     */
     public static void main(String[] args) {
         // API Setup - Jason S
         String key = "be22faad5317fe55300a1ccd39259e49";
