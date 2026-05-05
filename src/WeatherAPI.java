@@ -24,17 +24,32 @@ import org.json.JSONObject;
   }
 }*/
 
+/**
+ * This class handles communication with our OpenWeatherMap API.
+ * Fetches and parses weather data for specified locations.
+ */
 public class WeatherAPI {
 
     private String key;
     private String url;
     //private Weather weather; //Create weather object with etch instead - Jason S
-
+  
+    /**
+     * Initializes the API client with credentials and endpoint.
+     * * @param key The API key for OpenWeatherMap.
+     * @param url The base URL for the weather endpoint.
+     */
     public WeatherAPI(String key, String url){
         this.key = key; //api key - Jason S
         this.url = url; // api endpoint - Jason S
     }
 
+
+    /**
+     * Parses a raw JSON response string into a Weather object.
+     * * @param jsonResponse The raw JSON string from the API.
+     * @return A Weather object, or null if parsing fails or error is returned.
+     */
     //Public or private? Find out api structure - Jason S
     //change from void, need to create Weather Object
     private Weather parse(String jsonResponse){
@@ -62,7 +77,11 @@ public class WeatherAPI {
         return new Weather(city, temp, humidity, condition, windSpeed);
     }
 
-    //Is this right? - Jason S
+    /**
+     * Fetches weather data for a specific city query.
+     * * @param city The city name (optionally with state/country/zip).
+     * @return A Weather object populated with API data, or null on error.
+     */
     public Weather fetch(String city) {
 
         try{
