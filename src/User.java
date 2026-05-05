@@ -9,6 +9,15 @@ public class User {
     public String password;
     public String email;
 
+
+    /**
+     * Constructs a new User with full details.
+     * * @param username The user's name.
+     * @param password The user's secret password.
+     * @param email    The user's email address.
+     * @param account  The associated Account object.
+     * @param location The user's default Location.
+     */
     public User(String username, String password, String email, Account account, Location location) {
         this.username = username;
         this.password = password;
